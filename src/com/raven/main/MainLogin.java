@@ -76,6 +76,16 @@ public class MainLogin extends javax.swing.JFrame {
         animatorLogin.setResolution(0);
         animatorBody.setResolution(0);
     }
+    
+    public String username;
+    
+//    public void setUserText (String a) {
+//        username = a;
+//    }
+//    
+//    public String getUserText () {
+//        return this.username;
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -170,7 +180,7 @@ public class MainLogin extends javax.swing.JFrame {
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addContainerGap(431, Short.MAX_VALUE)
+                .addContainerGap(482, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(430, 430, 430))
         );
@@ -179,7 +189,7 @@ public class MainLogin extends javax.swing.JFrame {
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         background1.add(panelLogin, "card2");
@@ -232,22 +242,21 @@ public class MainLogin extends javax.swing.JFrame {
         panelBodyLayout.setHorizontalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBodyLayout.createSequentialGroup()
-                        .addGap(573, 573, 573)
-                        .addComponent(jLabel2))
-                    .addGroup(panelBodyLayout.createSequentialGroup()
-                        .addGap(501, 501, 501)
-                        .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmdContinue, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                            .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                            .addComponent(txtLabelNama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(501, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
+            .addGroup(panelBodyLayout.createSequentialGroup()
+                .addContainerGap(526, Short.MAX_VALUE)
+                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdContinue, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addComponent(txtLabelNama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(527, Short.MAX_VALUE))
+            .addGroup(panelBodyLayout.createSequentialGroup()
+                .addGap(604, 604, 604)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBodyLayout.setVerticalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,11 +266,11 @@ public class MainLogin extends javax.swing.JFrame {
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(cmdContinue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117)
+                .addGap(123, 123, 123)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -306,7 +315,7 @@ public class MainLogin extends javax.swing.JFrame {
                 action = false;
             }
             try {
-                sql = "SELECT * FROM tb_admin WHERE nip"
+                sql = "SELECT * FROM tb_user WHERE username"
                         + "='" + user + "'"
                         + " AND password = '" + pass
                         + "'";
@@ -315,6 +324,7 @@ public class MainLogin extends javax.swing.JFrame {
                     if (action) {
                         animatorLogin.start();
                         txtLabelNama.setText(rs.getString("nama"));
+                        username = txtUser.getText();
                         enableLogin(false);
 
 //                        else if (pass.equals("admin")) {

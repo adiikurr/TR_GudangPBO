@@ -1,19 +1,33 @@
 package com.raven.main;
 
 import com.raven.event.EventMenu;
-import com.raven.form.DataGudang;
+import com.raven.form.Dashboard_DataBarang;
+import com.raven.form.Dashboard_DataGudang;
+import com.raven.form.Dashboard_DataSupplier;
 import com.raven.form.Form_BarangMasuk;
-import com.raven.form.Form_Home;
+import com.raven.form.Form_BarangKeluar;
+import com.raven.form.Report_BarangMasuk;
+import com.raven.form.Report_BarangKeluar;
+import com.raven.form.Report_DataSupplier;
+import com.raven.form.Report_StokBarang;
 import java.awt.Color;
 import java.awt.Component;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class MainDashboard extends javax.swing.JFrame {
 
     public MainDashboard() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
-        showForm(new Form_Home());
+        showForm(new Dashboard_DataGudang());
+        showForm(new Dashboard_DataSupplier());
+        showForm(new Form_BarangMasuk());
+        showForm(new Form_BarangKeluar());
+        showForm(new Report_BarangMasuk());
+        showForm(new Report_BarangKeluar());
+        showForm(new Report_DataSupplier());
+        showForm(new Report_StokBarang());
+        showForm(new Dashboard_DataBarang());
     }
 
     private void showForm(Component com) {
@@ -48,15 +62,15 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(body)
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -80,24 +94,38 @@ public class MainDashboard extends javax.swing.JFrame {
         menu1.addEvent(new EventMenu() {
             @Override
             public void menuIndexChange(int index) {
+
                 if (index == 0) {
-                    showForm(new Form_Home());
+                    showForm(new Dashboard_DataBarang());
+                } else if (index == 1) {
+                    showForm(new Dashboard_DataGudang());
+                } else if (index == 2) {
+                    showForm(new Dashboard_DataSupplier());
                 } else if (index == 3) {
                     showForm(new Form_BarangMasuk());
+                } else if (index == 4) {
+                    showForm(new Form_BarangKeluar());
                 } else if (index == 5) {
-                    showForm(new DataGudang());
-                } else if (index == 9) {
+                    showForm(new Report_BarangMasuk());
+                } else if (index == 6) {
+                    showForm(new Report_BarangKeluar());
+                } else if (index == 7) {
+                    showForm(new Report_StokBarang());
+                } else if (index == 8) {
+                    showForm(new Report_DataSupplier());
+                } else if (index == 9){
                     MainLogin mlog = new MainLogin();
-                    JOptionPane.showMessageDialog(null, "Berhasil Logout");
+                    JOptionPane.showMessageDialog(null, "Berhasil Logout ");
                     mlog.setVisible(true);
-                    this.setVisible(false);
+                    setVisible(false);
                 }
             }
 
-            private void setVisible(boolean b) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        });
+//            private void setVisible(boolean b) {
+//                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//            }
+        }
+        );
     }//GEN-LAST:event_formWindowOpened
 
     public static void main(String args[]) {

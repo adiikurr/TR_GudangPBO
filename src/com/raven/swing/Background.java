@@ -53,9 +53,9 @@ public class Background extends JPanel {
         Graphics2D g2 = (Graphics2D) grphcs.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         int height = (int) (getHeight() * (1f - easeOutQuint(animate)));
-        g2.setColor(new Color(238, 231, 223));
+        g2.setColor(new Color(207, 199, 190));
         g2.fill(createShape(height, 50, 70, 50, 100));
-        g2.setColor(new Color(219, 203, 190));
+        g2.setColor(new Color(224, 207, 186));
         g2.fill(createShape(height, 80, 50, 100, 50, 100, 50));
         g2.setColor(new Color(176,152,142));
         g2.fill(createShape(height, 70, 20, 60, 20, 70));
