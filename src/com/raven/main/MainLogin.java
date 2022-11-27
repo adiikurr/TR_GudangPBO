@@ -1,8 +1,10 @@
 package com.raven.main;
 
+import com.raven.component.Profile;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import org.jdesktop.animation.timing.Animator;
 import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
@@ -76,16 +78,6 @@ public class MainLogin extends javax.swing.JFrame {
         animatorLogin.setResolution(0);
         animatorBody.setResolution(0);
     }
-    
-    public String username;
-    
-//    public void setUserText (String a) {
-//        username = a;
-//    }
-//    
-//    public String getUserText () {
-//        return this.username;
-//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,6 +97,8 @@ public class MainLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtLabelNama = new javax.swing.JLabel();
         cmdContinue = new com.raven.swing.Button();
+        txtLabelNama1 = new javax.swing.JLabel();
+        txtLabelNama2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -237,44 +231,70 @@ public class MainLogin extends javax.swing.JFrame {
             }
         });
 
+        txtLabelNama1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtLabelNama1.setForeground(new java.awt.Color(176, 152, 142));
+        txtLabelNama1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        txtLabelNama2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        txtLabelNama2.setForeground(new java.awt.Color(176, 152, 142));
+        txtLabelNama2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
         panelBody.setLayout(panelBodyLayout);
         panelBodyLayout.setHorizontalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(603, 603, 603))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
+                        .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmdContinue, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                            .addComponent(txtLabelNama1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtLabelNama2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(522, 522, 522))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
+                .addGap(0, 477, Short.MAX_VALUE)
+                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
+                        .addComponent(txtLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(469, 469, 469))))
             .addGroup(panelBodyLayout.createSequentialGroup()
-                .addContainerGap(526, Short.MAX_VALUE)
-                .addGroup(panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmdContinue, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(imageAvatar1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addComponent(txtLabelNama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(527, Short.MAX_VALUE))
-            .addGroup(panelBodyLayout.createSequentialGroup()
-                .addGap(604, 604, 604)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(527, 527, 527)
+                .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelBodyLayout.setVerticalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBodyLayout.createSequentialGroup()
                 .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addGap(68, 68, 68)
                 .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtLabelNama1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtLabelNama2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(cmdContinue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
 
+        txtLabelNama.setAlignmentX(CENTER_ALIGNMENT);
+        txtLabelNama.setAlignmentY(CENTER_ALIGNMENT);
+        txtLabelNama.setAlignmentX(CENTER_ALIGNMENT);
+        txtLabelNama.setAlignmentY(CENTER_ALIGNMENT);
         txtLabelNama.setAlignmentX(CENTER_ALIGNMENT);
         txtLabelNama.setAlignmentY(CENTER_ALIGNMENT);
 
@@ -322,16 +342,37 @@ public class MainLogin extends javax.swing.JFrame {
                 rs = stat.executeQuery(sql);
                 if (rs.next()) {
                     if (action) {
-                        animatorLogin.start();
-                        txtLabelNama.setText(rs.getString("nama"));
-                        username = txtUser.getText();
-                        enableLogin(false);
-
-//                        else if (pass.equals("admin")) {
-//                            animatorLogin.start();
-//                            txtLabelNama.setText(rs.getString("nama"));
-//                            enableLogin(false);
-//                        }
+                        String getNim = rs.getString("nim");
+                        String getProgdi = rs.getString("progdi");
+                        if (user.equals("adi")) {
+                            animatorLogin.start();
+                            txtLabelNama.setText(rs.getString("nama"));
+                            txtLabelNama1.setText(getNim);
+                            txtLabelNama2.setText(getProgdi);
+                            imageAvatar1.setImage(new ImageIcon(getClass().getResource("/com/raven/icon/moai1.jpeg")));
+                            enableLogin(false);
+                        } else if (user.equals("rioarya")) {
+                            animatorLogin.start();
+                            txtLabelNama.setText(rs.getString("nama"));
+                            txtLabelNama1.setText(getNim);
+                            txtLabelNama2.setText(getProgdi);
+                            imageAvatar1.setImage(new ImageIcon(getClass().getResource("/com/raven/icon/moai2.png")));
+                            enableLogin(false);
+                        } else if (pass.equals("arta")) {
+                            animatorLogin.start();
+                            txtLabelNama.setText(rs.getString("nama"));
+                            txtLabelNama1.setText(getNim);
+                            txtLabelNama2.setText(getProgdi);
+                            imageAvatar1.setImage(new ImageIcon(getClass().getResource("/com/raven/icon/moai2.png")));
+                            enableLogin(false);
+                        } else if (pass.equals("alfin")) {
+                            animatorLogin.start();
+                            txtLabelNama.setText(rs.getString("nama"));
+                            txtLabelNama1.setText(getNim);
+                            txtLabelNama2.setText(getProgdi);
+                            imageAvatar1.setImage(new ImageIcon(getClass().getResource("/com/raven/icon/moai2.png")));
+                            enableLogin(false);
+                        }                        
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Username atau Password salah");
@@ -427,6 +468,8 @@ public class MainLogin extends javax.swing.JFrame {
     private com.raven.swing.PanelTransparent panelBody;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JLabel txtLabelNama;
+    private javax.swing.JLabel txtLabelNama1;
+    private javax.swing.JLabel txtLabelNama2;
     private com.raven.swing.PasswordField txtPass;
     private com.raven.swing.TextField txtUser;
     // End of variables declaration//GEN-END:variables

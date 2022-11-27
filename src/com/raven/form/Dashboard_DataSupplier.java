@@ -255,7 +255,7 @@ public class Dashboard_DataSupplier extends javax.swing.JPanel {
 
         btnBersih.setBackground(new java.awt.Color(204, 204, 204));
         btnBersih.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnBersih.setText("Bersih");
+        btnBersih.setText("Clear");
         btnBersih.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
         btnBersih.setContentAreaFilled(false);
         btnBersih.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -363,7 +363,7 @@ public class Dashboard_DataSupplier extends javax.swing.JPanel {
 
         labelKodePart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelKodePart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelKodePart.setText("Kode Gudang");
+        labelKodePart.setText("Kode Supplier");
         labelKodePart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -373,7 +373,7 @@ public class Dashboard_DataSupplier extends javax.swing.JPanel {
 
         labelNamaPart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelNamaPart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelNamaPart.setText("Nama Gudang");
+        labelNamaPart.setText("Nama Supplier");
         labelNamaPart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -383,7 +383,7 @@ public class Dashboard_DataSupplier extends javax.swing.JPanel {
 
         labelKeterangan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelKeterangan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelKeterangan.setText("Keterangan");
+        labelKeterangan.setText("Alamat");
         labelKeterangan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         labelKategori.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

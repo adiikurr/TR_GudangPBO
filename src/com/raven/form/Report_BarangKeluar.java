@@ -1,7 +1,5 @@
 package com.raven.form;
 
-import java.awt.Color;
-import java.awt.Frame;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -359,6 +357,7 @@ public class Report_BarangKeluar extends javax.swing.JPanel {
                 lebarKolom();
             }
         } catch (Exception e) {
+            
         }
         lebarKolom();
         JOptionPane.showMessageDialog(null, "Done");

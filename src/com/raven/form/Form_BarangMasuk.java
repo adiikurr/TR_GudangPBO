@@ -1,12 +1,9 @@
 package com.raven.form;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -247,6 +244,7 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan");
 //        }
 //    }
+    
     public void dataTable() {
         Object[] Baris = {"No", "Tanggal", "ID Detail BM", "ID BM", "Supplier", "Kode Part", "Nama Part", "Qty", "Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
@@ -428,9 +426,6 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 
         panelShadow1 = new com.raven.swing.PanelShadow();
         btnTambah = new javax.swing.JButton();
-        btnSimpan = new javax.swing.JButton();
-        btnUbah = new javax.swing.JButton();
-        btnHapus = new javax.swing.JButton();
         btnBersih = new javax.swing.JButton();
         btnCetak = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -475,7 +470,7 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 
         btnTambah.setBackground(new java.awt.Color(204, 204, 204));
         btnTambah.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnTambah.setText("Tambah Item");
+        btnTambah.setText("Tambah Form");
         btnTambah.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
         btnTambah.setContentAreaFilled(false);
         btnTambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -494,72 +489,9 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
             }
         });
 
-        btnSimpan.setBackground(new java.awt.Color(204, 204, 204));
-        btnSimpan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnSimpan.setText("Simpan");
-        btnSimpan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
-        btnSimpan.setContentAreaFilled(false);
-        btnSimpan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSimpan.setOpaque(true);
-        btnSimpan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSimpanMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSimpanMouseExited(evt);
-            }
-        });
-        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSimpanActionPerformed(evt);
-            }
-        });
-
-        btnUbah.setBackground(new java.awt.Color(204, 204, 204));
-        btnUbah.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnUbah.setText("Ubah");
-        btnUbah.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
-        btnUbah.setContentAreaFilled(false);
-        btnUbah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnUbah.setOpaque(true);
-        btnUbah.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnUbahMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnUbahMouseExited(evt);
-            }
-        });
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
-            }
-        });
-
-        btnHapus.setBackground(new java.awt.Color(204, 204, 204));
-        btnHapus.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnHapus.setText("Hapus");
-        btnHapus.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
-        btnHapus.setContentAreaFilled(false);
-        btnHapus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnHapus.setOpaque(true);
-        btnHapus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnHapusMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnHapusMouseExited(evt);
-            }
-        });
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
-
         btnBersih.setBackground(new java.awt.Color(204, 204, 204));
         btnBersih.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnBersih.setText("Bersih");
+        btnBersih.setText("Clear");
         btnBersih.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(224, 207, 186), 3, true));
         btnBersih.setContentAreaFilled(false);
         btnBersih.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -640,23 +572,17 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
         panelShadow1.setLayout(panelShadow1Layout);
         panelShadow1Layout.setHorizontalGroup(
             panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelShadow1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShadow1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(panelShadow1Layout.createSequentialGroup()
                         .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
                         .addComponent(btnBersih, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
-                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
                         .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 497, Short.MAX_VALUE)
                         .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25))
         );
@@ -666,12 +592,9 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBersih, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                 .addContainerGap())
@@ -694,7 +617,7 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 
         labelKodePart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelKodePart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelKodePart.setText("Kode Gudang");
+        labelKodePart.setText("ID Barang Masuk");
         labelKodePart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -704,7 +627,7 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 
         labelNamaPart.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelNamaPart.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelNamaPart.setText("Nama Gudang");
+        labelNamaPart.setText("Nama Supplier");
         labelNamaPart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -714,7 +637,7 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
 
         labelKategori.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelKategori.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelKategori.setText("No. Telepon");
+        labelKategori.setText("Nama Part");
         labelKategori.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -934,8 +857,8 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(txtIdDetailBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -943,10 +866,10 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                         .addComponent(lb2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(txt2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                    .addComponent(txt3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -960,13 +883,13 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                     .addComponent(lb2)
                     .addComponent(lb3))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btnPilihTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -986,12 +909,12 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                             .addComponent(labelNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addGap(0, 7, Short.MAX_VALUE)
                         .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1009,9 +932,9 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(labelKeterangan1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 37, Short.MAX_VALUE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(panelShadow1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1139,124 +1062,6 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnTambahActionPerformed
 
-    private void btnSimpanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseEntered
-        btnSimpan.setBackground(new Color(224,207,186));
-        btnSimpan.setForeground(Color.black);
-    }//GEN-LAST:event_btnSimpanMouseEntered
-
-    private void btnSimpanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSimpanMouseExited
-        btnSimpan.setBackground(new Color(204, 204, 204));
-        btnSimpan.setForeground(Color.black);
-    }//GEN-LAST:event_btnSimpanMouseExited
-
-    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        if (txtIdBarangMasuk.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "ID BM tidak boleh kosong");
-            txtIdBarangMasuk.requestFocus();
-        } else if (txtSupplier.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Supplier tidak boleh kosong");
-            txtSupplier.requestFocus();
-        } else {
-            String sql = "insert into tb_brg_masuk values (?,?,?,?)";
-            String tampilan = "dd-MM-yyyy";
-            SimpleDateFormat fm = new SimpleDateFormat(tampilan);
-            String tanggal = String.valueOf(fm.format(btnPilihTanggal.getDate()));
-            try {
-                PreparedStatement stat = conn.prepareStatement(sql);
-                stat.setString(1, tanggal.toString());
-                stat.setString(2, txtIdBarangMasuk.getText());
-                stat.setString(3, txtSupplier.getText());
-                stat.setString(4, txtKeterangan.getText());
-                stat.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
-                //            String refresh = "select * from tb_barang";
-                kosong();
-//                autoIdBM();
-//                autoIdBM_DT();
-                dataTable();
-                lebarKolom();
-                txtIdBarangMasuk.setEnabled(true);
-                txtSupplier.setEnabled(true);
-                txtIdBarangMasuk.requestFocus();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Data Gagal Disimpan" + e);
-            }
-        }
-    }//GEN-LAST:event_btnSimpanActionPerformed
-
-    private void btnUbahMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUbahMouseEntered
-        btnUbah.setBackground(new Color(224,207,186));
-        btnUbah.setForeground(Color.black);
-    }//GEN-LAST:event_btnUbahMouseEntered
-
-    private void btnUbahMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUbahMouseExited
-        btnUbah.setBackground(new Color(204, 204, 204));
-        btnUbah.setForeground(Color.black);
-    }//GEN-LAST:event_btnUbahMouseExited
-
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        String sql = "update tb_detail_brg_masuk set tanggal=?,id_detail_bm=?,id_bm=?,supplier=?,kode_part=?,nama_part=?,jumlah=?,keterangan=? where id_detail_bm='" + txtIdDetailBarangMasuk.getText() + "'";
-        String tampilan = "dd-MM-yyyy";
-        SimpleDateFormat fm = new SimpleDateFormat(tampilan);
-        String tanggal = String.valueOf(fm.format(btnPilihTanggal.getDate()));
-        try {
-            PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, tanggal.toString());
-            stat.setString(2, txtIdDetailBarangMasuk.getText());
-            stat.setString(3, txtIdBarangMasuk.getText());
-            stat.setString(4, txtSupplier.getText());
-            stat.setString(5, txtKodePart.getText());
-            stat.setString(6, txtNamaPart.getText());
-            stat.setString(7, txtJumlahBarang.getText());
-            stat.setString(8, txtKeterangan.getText());
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah");
-            //            String refresh = "select * from tb_barang";
-            kosong();
-//            autoIdBM();
-//            autoIdBM_DT();
-            dataTable();
-            lebarKolom();
-            txtIdBarangMasuk.requestFocus();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Data Gagal Diubah" + e);
-        }
-    }//GEN-LAST:event_btnUbahActionPerformed
-
-    private void btnHapusMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusMouseEntered
-        btnHapus.setBackground(Color.red);
-        btnHapus.setForeground(Color.white);
-    }//GEN-LAST:event_btnHapusMouseEntered
-
-    private void btnHapusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusMouseExited
-        btnHapus.setBackground(new Color(204, 204, 204));
-        btnHapus.setForeground(Color.black);
-    }//GEN-LAST:event_btnHapusMouseExited
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        int ok = JOptionPane.showConfirmDialog(null, " Apakah Anda Yakin Ingin "
-                + "Menghapus Data", "Konfirmasi Dialog", JOptionPane.YES_NO_OPTION);
-        if (ok == 0) {
-            String sql = "delete from tb_detail_brg_masuk where id_bm='" + txtIdBarangMasuk.getText() + "'";
-            String sql2 = "delete from tb_brg_masuk where id_bm='" + txtIdBarangMasuk.getText() + "'";
-            try {
-                PreparedStatement stat = conn.prepareStatement(sql);
-                stat.executeUpdate();
-                PreparedStatement stat2 = conn.prepareStatement(sql2);
-                stat2.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-                kosong();
-//                autoIdBM();
-//                autoIdBM_DT();
-                dataTable();
-                lebarKolom();
-                txtIdBarangMasuk.requestFocus();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Data Gagal Dihapus" + e);
-            }
-        }
-    }//GEN-LAST:event_btnHapusActionPerformed
-
     private void btnBersihMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBersihMouseEntered
         btnBersih.setBackground(new Color(224,207,186));
         btnBersih.setForeground(Color.black);
@@ -1353,11 +1158,8 @@ public class Form_BarangMasuk extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBersih;
     private javax.swing.JButton btnCetak;
-    private javax.swing.JButton btnHapus;
     private com.toedter.calendar.JDateChooser btnPilihTanggal;
-    private javax.swing.JButton btnSimpan;
     private javax.swing.JButton btnTambah;
-    private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
